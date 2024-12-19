@@ -186,6 +186,8 @@ v = [
 ['Афганистан',53.65,2139]
 ]
 
+import matplotlib.pyplot as pplt
+
 print('Country; Age; GDP')
 for i in v:
     print(''+str(i[0])+';'+str(i[1]).replace('.',',')+';'+str(i[2]))
@@ -227,3 +229,11 @@ r = (mxy-mx*my)/(skox*skoy)
 print()
 print('Коэффициент корреляции r = '+str(r))
 print('Коэффициент детерминации R^2 =' + str(r*r))
+
+lifespan = [_d[1] for _d in v]
+# и тепературами
+gdp = [_d[2] for _d in v]
+pplt.scatter(lifespan, gdp)
+pplt.xlabel("Средняя продолжительность жизни")
+pplt.ylabel("ВВП по ППС на душу населения")
+pplt.show()
